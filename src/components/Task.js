@@ -13,15 +13,15 @@ const Task = (props) => {
         {...provided.draggableProps}
         {...provided.dragHandleProps}
         ref={provided.innerRef}
-        is={snapshot.isDragging}
+        isDragging={snapshot.isDragging}
         >
           <FontAwesomeIcon
             className="task-icon"
             icon={faBullseye}
             size="lg"
-            color="#CFCFCF"
+            color={`${snapshot.isDragging ? '#FFD732' : '#E8E8E8'}`}
           />
-          <p className="task-text">{task.content}</p>
+          <p className="task-text" style={{backgroundColor: `${snapshot.isDragging ? '#FFD732' : '#E8E8E8'}`}}>{task.content}</p>
         </div>
       )}
     </Draggable>

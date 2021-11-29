@@ -65,7 +65,7 @@ const DragDrop = () => {
     );
   };
 
-  return <div>{data()}</div>;
+  return <div className="layout">{data()}</div>;
 };
 
 export default DragDrop;

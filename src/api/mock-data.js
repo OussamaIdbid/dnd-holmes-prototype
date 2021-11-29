@@ -7,17 +7,24 @@ export const buildInitialData = () => {
     "task-3": { id: "task-3", content: "Using the Security Coach" },
     "task-4": { id: "task-4", content: "Using the Lifeline Button" },
   };
+
   const initialData = {
     tasks: mockData,
     columns: {
       "column-1": {
         id: "column-1",
-        title: "To Do",
-        taskIds: Object.keys(mockData).map((d) => d),
+        title: "Current Goals",
+        taskIds: Object.keys(mockData).filter((t) => t === "task-1"),
+      },
+      "column-2": {
+        id: "column-2",
+        title: "Goals",
+        taskIds: Object.keys(mockData).filter((t) => t !== "task-1"),
       },
     },
-    columnorder: ["column-1"],
+    columnorder: ["column-1", "column-2"],
   };
 
+  console.log(initialData);
   return initialData;
 };
