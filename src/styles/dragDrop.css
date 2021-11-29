@@ -58,4 +58,37 @@ html {
     border-radius: 10px 10px 10px 10px;
     color: #1B110D;
     opacity: 75%
+
+}
+
+@-webkit-keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+.fade-out {
+    -webkit-animation: fade-out 1s ease-out 3s both;
+            animation: fade-out 1s ease-out 3s both;
+}
+.info-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-text-content {
+    font-size: medium;
+    text-align: center;
 }

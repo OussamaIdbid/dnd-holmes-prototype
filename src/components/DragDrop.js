@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import { buildInitialData } from "./../api/mock-data";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHandPointer } from "@fortawesome/free-solid-svg-icons";
+
 import Column from "./Column";
 
 const DragDrop = () => {
@@ -81,13 +84,25 @@ const DragDrop = () => {
 
     return (
       <DragDropContext onDragEnd={onDragEnd}>
-        {initialData.columnorder.map((columnId) => {
+        {initialData.columnorder.map((columnId, index) => {
           const column = initialData.columns[columnId];
           const tasks = column.taskIds.map(
             (taskId) => initialData.tasks[taskId]
           );
 
-          return <Column key={column.id} column={column} tasks={tasks} />;
+          return index === 0 ? (
+            <>
+              <Column key={column.id} column={column} tasks={tasks} />
+              <div className="info-text fade-out">
+                <p className="info-text-content" style={{ color: "#867B79" }}>
+                  Add a goal by dragging and dropping
+                </p>
+                <FontAwesomeIcon icon={faHandPointer} color="#867B79" />
+              </div>
+            </>
+          ) : (
+            <Column key={column.id} column={column} tasks={tasks} />
+          );
         })}
       </DragDropContext>
     );
