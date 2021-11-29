@@ -12,6 +12,7 @@ const Column = (props) => {
         <h1>{column.title}</h1>
       </div>
       <div className="task-container">
+          {tasks.length > 0 ? 
         <Droppable droppableId={column.id}>
           {(provided) => (
             <div ref={provided.innerRef} {...provided.droppableProps}>
@@ -22,6 +23,7 @@ const Column = (props) => {
             </div>
           )}
         </Droppable>
+        : <h1 className="no-item">No Goals yet assigned to this Level</h1>}
       </div>
     </div>
   );
