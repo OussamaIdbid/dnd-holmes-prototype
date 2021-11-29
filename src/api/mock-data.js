@@ -14,11 +14,14 @@ export const buildInitialData = () => {
         id: "column-1",
         title: "Current Goals",
         taskIds: Object.keys(mockData).filter((t) => t === "task-1"),
+        emptyMessage: "No Goals yet assigned to this Level"
+
       },
       "column-2": {
         id: "column-2",
         title: "Goals",
         taskIds: Object.keys(mockData).filter((t) => t !== "task-1"),
+        emptyMessage: "No goals found"
       },
     },
     columnorder: ["column-1", "column-2"],

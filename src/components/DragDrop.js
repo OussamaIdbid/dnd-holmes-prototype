@@ -29,14 +29,14 @@ const DragDrop = () => {
 
     if (destination.droppableId !== source.droppableId) {
       const destinationColumn = initialData.columns[destination.droppableId];
-      const column = initialData.columns[source.droppableId];
-      const newTaskIds = Array.from(column.taskIds);
+      const sourceColumn = initialData.columns[source.droppableId];
+      const newTaskIds = Array.from(sourceColumn.taskIds);
       const newTaskIdsDestination = Array.from(destinationColumn.taskIds);
       newTaskIds.splice(source.index, 1);
       newTaskIdsDestination.splice(destination.index, 0, draggableId);
 
       const newColumn = {
-        ...column,
+        ...sourceColumn,
         taskIds: newTaskIds,
       };
 
@@ -45,7 +45,6 @@ const DragDrop = () => {
         taskIds: newTaskIdsDestination,
       };
 
-      console.log(newColumn);
       const newState = {
         ...initialData,
         columns: {
@@ -66,7 +65,6 @@ const DragDrop = () => {
         taskIds: newTaskIds,
       };
 
-      console.log(newColumn);
       const newState = {
         ...initialData,
         columns: {

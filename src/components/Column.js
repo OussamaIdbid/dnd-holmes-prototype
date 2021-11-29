@@ -19,7 +19,7 @@ const Column = (props) => {
                   <Task key={task.id} task={task} index={index} />
                 ))
               ) : (
-                <h1 className="no-item">No Goals yet assigned to this Level</h1>
+                <h1 className="no-item">{column.emptyMessage}</h1>
               )}
               {provided.placeholder}
             </div>
