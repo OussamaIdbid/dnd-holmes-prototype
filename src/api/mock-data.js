@@ -1,4 +1,3 @@
-import superagent from "superagent";
 
 export const buildInitialData = () => {
   const mockData = {
@@ -25,6 +24,5 @@ export const buildInitialData = () => {
     columnorder: ["column-1", "column-2"],
   };
 
-  console.log(initialData);
   return initialData;
 };
